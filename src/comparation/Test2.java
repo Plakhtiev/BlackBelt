@@ -17,8 +17,9 @@ public class Test2 {
         list.add(empl3);
         list.add(empl4);
         System.out.println(list);
-        Collections.sort(list, new IdComparator());
+//        Collections.sort(list, new IdComparator());
         Collections.sort(list, new NameComparator());
+        Collections.sort(list, new SalaryComparator());
         System.out.println(list);
     }
 
@@ -83,5 +84,12 @@ class NameComparator implements Comparator<Employee> {
     @Override
     public int compare(Employee empl1, Employee empl2) {
         return empl1.name.compareTo(empl2.name);
+    }
+}
+
+class SalaryComparator implements Comparator<Employee> {
+    @Override
+    public int compare(Employee empl1, Employee empl2) {
+        return empl1.salary-empl2.salary;
     }
 }
